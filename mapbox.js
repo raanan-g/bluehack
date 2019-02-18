@@ -8,12 +8,11 @@ zoom: 10.0
 
 var marker = new mapboxgl.Marker() // Initialize a new marker
   .setLngLat([-79.990100, 40.441700])
-  .addTo(map); // Ass the marker to the map
+  .addTo(map); // Add the marker to the map
 
 var geocoder = new MapboxGeocoder({ // Initialize the geocoder
   accessToken: mapboxgl.accessToken, // Set the access token
   placeholder: 'Search your address', // Text prompt
-  bbox: [-79.94021, -40.41163, -80.01243, -40.46787], // Boundary for Pittsburgh
   proximity: {
     longitude: -79.990100,
     latitude: -40.441700
@@ -34,8 +33,8 @@ map.on('load', function() {
   });
   
   map.addLayer({
-    "id":"point",
-    "source":"single-point",
+    "id": "point",
+    "source": "single-point",
     "type": "circle",
     "paint": {
       "circle-radius": 10,
@@ -45,9 +44,8 @@ map.on('load', function() {
 
   // When user searches and address,  
   // add a marker at the result's coordinates
-  geocoder.on('result', function(e) {
-    map.GetSource('single-point').setData(e.result.geometry);
-
+  geocoder.on('result', function(ev) {
+    map.GetSource('single-point').setData(ev.result.geometry);
   });
   
 });

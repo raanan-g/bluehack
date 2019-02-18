@@ -7,9 +7,7 @@
  
  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder//mapbox-gl-geocoder.min.js'></script>
- <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder//mapbox-gl-geocoder.css' type='text/css' />
- 
+
  <style>
   body { margin:10; padding:10; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -17,6 +15,24 @@
 
 </head>
 <body>
+ <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder//mapbox-gl-geocoder.min.js'></script>
+ <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder//mapbox-gl-geocoder.css' type='text/css' />
+ 
+ <style>
+.geocoder {
+position:absolute;
+z-index:1;
+width:50%;
+left:50%;
+margin-left:-25%;
+top:20px;
+}
+.mapboxgl-ctrl-geocoder { min-width:100%; }
+</style>
+<div id='map'></div>
+<div id='geocoder' class='geocoder'></div>
+
+ 
  
 <div id='map'></div>
 <script src = "mapbox.js"></script>

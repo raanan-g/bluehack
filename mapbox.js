@@ -3,7 +3,7 @@ const map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/raanan-g/cjs3vdafw04bb1fmtnqdivns0',
 center: [-79.990100, 40.441700],
-zoom: 14.0
+zoom: 12.0
 });
 
 var marker = new mapboxgl.Marker() // Initialize a new marker

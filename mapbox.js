@@ -20,7 +20,7 @@ var geocoder = new MapboxGeocoder({ // Initialize the geocoder
 });
 
 // Add geocoder to the map
-map.addControl(geocoder);
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 // Add a source layer and default styling for a single point
 map.on('load', function() {

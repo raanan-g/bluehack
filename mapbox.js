@@ -13,7 +13,7 @@ var marker = new mapboxgl.Marker() // Initialize a new marker
 var geocoder = new MapboxGeocoder({ // Initialize the geocoder
   accessToken: mapboxgl.accessToken, // Set the access token
   placeholder: 'Search your address', // Text prompt
-  bbox: [, , ,], // Boundary for Pittsburgh
+  bbox: [-79.94021, -40.41163, -80.01243, -40.46787], // Boundary for Pittsburgh
   proximity: {
     longitude: -79.990100,
     latitude: -40.441700

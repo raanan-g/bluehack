@@ -10,17 +10,17 @@ var marker = new mapboxgl.Marker() // Initialize a new marker
   .setLngLat([-79.990100, 40.441700])
   .addTo(map); // Add the marker to the map
 
-// var geocoder = 
-
-// Add geocoder to the map
-map.addControl(new MapboxGeocoder({ // Initialize the geocoder
+var geocoder = new MapboxGeocoder({ // Initialize the geocoder
   accessToken: mapboxgl.accessToken, // Set the access token
   placeholder: 'Search your address', // Text prompt
   proximity: {
     longitude: -79.990100,
     latitude: -40.441700
   } // coordinates of layer centroid
-}));
+});
+
+// Add geocoder to the map
+map.addControl(geocoder);
 
 // Add a source layer and default styling for a single point
 map.on('load', function() {
@@ -67,4 +67,30 @@ for (i = 0; i < layers.length; i++) {
   item.appendChild(value);
   legend.appendChild(item);
 }
+
+
+map.on('mousemove', function(e) {
+  var tracts = map.queryRenderedFeatures(e.point, {
+    layers: ['Lead Risk - Model 1']
+  });
+
+  if (tracts.length > 0) {
+    document.getElementById('pd').innerHTML = '<h3><strong>' + tracts[0].properties. + '</strong></h3><p><strong><em>' + tracts[0].properties.density + '</strong> people per square mile</em></p>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>See your neighborhood's risk</p>';
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 */
